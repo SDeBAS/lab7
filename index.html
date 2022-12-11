@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>CODEMIA</title>
+    <link rel="stylesheet" href="index.css" />
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body>
+        <!-- header starts -->
+    <div class="header">
+        <div class="header__left">
+            <img src="./assets/logo.png" alt="" />
+            <div class="header__input">
+                <input type="text" placeholder="Search People" ng-model="SearchFilters"/>
+            </div>
+        </div>
+
+        <div class="header__right">
+            <div class="header__info">
+                <img src="./assets/Mask group.png" alt="" class="user__avatar" />
+                <h4>Debanjan Basu</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- main body starts -->
+    <div class="main__body">
+        <!-- sidebar starts -->
+        <div class="sidebar">
+            <div class="sidebarRow">
+                <img src="./assets/Mask group.png" alt="" class="user__avatar" />
+                <h4>Debanjan Basu</h4>
+            </div>
+
+            <div class="sidebarRow">
+                <span class="material-icons"> Home</span>
+            </div>
+
+            <div class="sidebarRow">
+                <span class="material-icons">Messages </span>
+            </div>
+
+            <div class="sidebarRow">
+                <span class="material-icons"> Profile Page </span>
+            </div>
+
+            <div class="sidebarRow">
+                <span class="material-icons"> Doubt Clearing </span>
+            </div>
+        </div>
+
+
+        <!-- feed starts -->
+        <div class="feed">
+
+
+            <!-- message sender starts -->
+            <div class="messageSender">
+                <div class="messageSender__top">
+                    <img src="./assets/Mask group.png" alt="" srcset="">
+                    <form>
+                        <input class="messageSender__input" placeholder="Any update?" type="text" />
+                    </form>
+                </div>
+
+                <div class="messageSender__bottom">
+                    <div class="messageSender__option">
+                        <span style="color: red" class="material-icons">Photo </span>
+
+                    </div>
+
+                    <div class="messageSender__option">
+                        <span style="color: green" class="material-icons">
+                            Video
+                        </span>
+                    </div>
+
+                    <div class="messageSender__option">
+                        <span style="color: orange" class="material-icons">
+                            Code
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-controller='namesCtrl'>
+                
+            <!-- post  1 starts -->
+            <div class="post"  ng-repeat="n in datum | filter: SearchFilters" >
+                <div class="post__top">
+                    <img src="./assets/Mask group.png" alt="" srcset="">
+                    <div class="post__topInfo">
+                        <h3>{{n.name}}</h3>
+                        <p>{{n.date}} at {{n.time}}</p>
+                    </div>
+                </div>
+
+                <div class="post__bottom">
+                    <p>{{n.postext}}</p>
+                </div>
+
+                <div class="post__image">
+                    <video width="980" controls>
+                        <source src="./assets/video_html.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+
+                </div>
+
+                <div class="post__options">
+                    <div class="post__option">
+                        <span class="material-icons">Like </span>
+                    </div>
+
+                    <div class="post__option">
+                        <span class="material-icons"> Comment </span>
+                    </div>
+
+                    <div class="post__option">
+                        <span class="material-icons"> Share </span>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+
+           
+
+        </div>
+        <!-- main body ends -->
+
+<script src="index.js"></script>        
+  </body>
+</html>
